@@ -1,0 +1,45 @@
+{
+  "name": "shadowing-app",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "prepare:deck": "node prepare-deck.mjs",
+    "test": "vitest run",
+    "test:browser": "playwright test",
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "build:nas": "tsc --noEmit && tsc -p server/tsconfig.json && vite build --mode nas",
+    "server:start": "node --experimental-strip-types server/index.ts",
+    "server:check": "tsc -p server/tsconfig.json",
+    "test:server": "node --experimental-strip-types --test server/checks.mjs",
+    "test:nas:browser": "npm run build:nas && playwright test --config=nas.playwright.config.ts",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "dompurify": "^3.4.16",
+    "idb": "^8.0.4",
+    "jszip": "^3.10.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "sql.js": "^1.14.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
+    "@types/node": "^26.6.4",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.9",
+    "@types/sql.js": "^1.4.11",
+    "@vitejs/plugin-react": "^5.0.0",
+    "fake-indexeddb": "^6.2.5",
+    "jsdom": "^30.1.2",
+    "typescript": "~5.9.2",
+    "vite": "^7.1.3",
+    "vitest": "^5.0.3"
+  }
+}

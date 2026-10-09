@@ -1,0 +1,22 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build shadowing app",
+			"type": "shell",
+			"command": "PATH=\"/opt/homebrew/opt/node@22/bin:$PATH\" npm --prefix . run build",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Preview shadowing app (local only)",
+			"type": "shell",
+			"command": "PATH=\"/opt/homebrew/opt/node@22/bin:$PATH\" npm --prefix . run dev -- --strictPort",
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}
